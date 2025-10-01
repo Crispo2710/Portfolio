@@ -1,414 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=E"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cristian Brito - Portfólio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
 
-    :root {
-      --primary: #503f2c;
-      --secondary: #db8534;
-      --accent: #e7503c;
-      --light: #ecf0f1;
-      --dark: #50492c;
-      --gray: #95a5a6;
-    }
+  <!-- Styles -->
+  <link rel="stylesheet" href="Styles.css">
 
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
+  <!-- Ícones Font Awesome -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"
+  />
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 140px 0 60px;
-      text-align: center;
-    }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      margin-bottom: 20px;
-    }
-
-    .header-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .header-content p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Sections */
-    section {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--primary);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--secondary);
-      margin: 10px auto;
-    }
-
-    /* About */
-    #about p {
-      max-width: 900px;
-      margin: 0 auto 40px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .skills-grid {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .skills-box {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .skills-box.full-width {
-      width: 100%;
-    }
-
-    .skills-box h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-    }
-
-    .skill {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .skill span {
-      font-size: 14px;
-      flex: 1;
-    }
-
-    .progress-bar {
-      background: #eee;
-      height: 8px;
-      flex: 3;
-      margin: 0 10px;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    .progress-bar div {
-      background: var(--secondary);
-      height: 100%;
-      border-radius: 5px;
-      width: 0;
-      transition: width 1.5s ease-in-out;
-    }
-
-    .percent {
-      font-size: 13px;
-      color: #333;
-      flex: 1;
-      text-align: right;
-    }
-
-    /* Portfolio / Projects - MODIFICADO */
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      height: fit-content;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .project-image {
-      height: 250px;
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-
-    .project-content {
-      padding: 25px;
-    }
-
-    .project-content h3 {
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-size: 1.4rem;
-    }
-
-    .project-content p {
-      color: var(--gray);
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .tech-tag {
-      background: var(--light);
-      color: var(--primary);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: var(--secondary);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .projects-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .project-image {
-        height: 200px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .projects-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-image {
-        height: 180px;
-      }
-      
-      .project-content {
-        padding: 20px;
-      }
-    }
-  </style>
+  <title>OLN Elite Group</title>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <img src="assets/5b05ab1e-639c-4153-9f7b-0585fd9d281a.jpg" alt="Cristian Brito" class="profile-img">
-      <div class="header-content">
-        <h1>Cristian Brito</h1>
-        <p>Desenvolvedor Front-end & Designer</p>
-        <p>Unindo programação, design e publicidade para criar soluções criativas e funcionais</p>
-      </div>
+  <div class="container">
+    <!-- Navbar -->
+    <div class="navbar-container">
+      <nav>
+        <a href="#">
+          <img class="logo" src="assets/OLN.png" alt="OLN Elite">
+        </a>
+        <ul class="navbar-itens">
+          <li><a href="#">Nossa cidade</a></li>
+          <li><a href="#">Atualizações</a></li>
+          <li>
+            <a 
+              href="https://discord.com/api/oauth2/authorize?client_id=1419003344478929170&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2FOLN%2Fcallback.html&response_type=token&scope=identify%20email" 
+              class="default-btn"
+            >
+              Entrar <i class="fa-brands fa-discord"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="profile">
+              <i class="fa-solid fa-circle-user"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </header>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">Sobre Mim</h2>
-      <p>
-        Atualmente cursando Bacharelado em Ciências da Computação, estou focado em desenvolver minhas habilidades em desenvolvimento front-end, com conhecimentos em HTML, CSS, JavaScript, TypeScript e React.
-      </p>
-
-      <!-- Grid com Design e Outras Habilidades -->
-      <div class="skills-grid">
-        <div class="skills-box">
-          <h3>Design</h3>
-          <div class="skill"><span>Adobe Photoshop</span><div class="progress-bar"><div data-width="85"></div></div><span class="percent">85%</span></div>
-          <div class="skill"><span>Canva</span><div class="progress-bar"><div data-width="90"></div></div><span class="percent">90%</span></div>
-        </div>
-
-        <div class="skills-box">
-          <h3>Outras Habilidades</h3>
-          <div class="skill"><span>Excel</span><div class="progress-bar"><div data-width="70"></div></div><span class="percent">70%</span></div>
-          <div class="skill"><span>Informática Avançada</span><div class="progress-bar"><div data-width="85"></div></div><span class="percent">85%</span></div>
-        </div>
-      </div>
-
-      <!-- Programação -->
-      <div class="skills-box full-width">
-        <h3>Programação</h3>
-        <div class="skill"><span>HTML</span><div class="progress-bar"><div data-width="90"></div></div><span class="percent">90%</span></div>
-        <div class="skill"><span>CSS</span><div class="progress-bar"><div data-width="70"></div></div><span class="percent">70%</span></div>
-        <div class="skill"><span>JavaScript</span><div class="progress-bar"><div data-width="30"></div></div><span class="percent">30% (Cursando)</span></div>
-        <div class="skill"><span>TypeScript</span><div class="progress-bar"><div data-width="20"></div></div><span class="percent">20% (Cursando)</span></div>
-        <div class="skill"><span>React</span><div class="progress-bar"><div data-width="20"></div></div><span class="percent">20% (Cursando)</span></div>
-        <div class="skill"><span>Python</span><div class="progress-bar"><div data-width="50"></div></div><span class="percent">50%</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects - MODIFICADO -->
-  <section id="projects" style="background-color: #fff;">
-    <div class="container">
-      <h2 class="section-title">Meus Projetos</h2>
-      <div class="projects-container">
-        <!-- Projeto 1 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="assets/Oln picture.png" alt="Site E-commerce FiveM">
-          </div>
-          <div class="project-content">
-            <h3>ORLEANS- E-commerce FiveM</h3>
-            <p>Plataforma completa com sistema de abas para atualizações, links diretos para o servidor, login via Discord e sincronização com banco de dados existente. Integração total entre site, Discord e FiveM.</p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">Discord API</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projeto 2 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="assets/login.png" alt="Avaliação de Qualidade de Software">
-          </div>
-          <div class="project-content">
-            <h3>Página de Login</h3>
-            <p>Projeto simples de login desenvolvido com [HTML/CSS], com foco em praticar conceitos de formulários e estilização de interfaces.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Html</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">Documentação</span>
-            </div>
-          </div>
+    <!-- Main -->
+    <main>
+      <!-- Banner -->
+      <div class="main-banner">
+        <p>As sombras guardam mais do que imaginamos.</p>
+        <a href="https://cfx.re/join/675py4" class="play">
+          Jogar <i class="fa-solid fa-gamepad"></i>
+        </a>
+        <!-- Social -->
+        <div class="social">
+          <ul class="social-itens">
+            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-discord"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Cristian Brito. Todos os direitos reservados.</p>
-    </div>
-  </footer>
 
-  <script>
-    // Animate skill bars on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const progressBars = document.querySelectorAll('.progress-bar div');
-      
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top < window.innerHeight &&
-          rect.bottom >= 0
-        );
-      }
-      
-      function animateProgressBars() {
-        progressBars.forEach(bar => {
-          if (isInViewport(bar)) {
-            const width = bar.getAttribute('data-width');
-            bar.style.width = width + '%';
-          }
-        });
-      }
-      
-      animateProgressBars();
-      window.addEventListener('scroll', animateProgressBars);
-    });
-  </script>
+      <!-- Título -->
+      <div class="main-title">
+        <h1>Possibilidades</h1>
+        <h4>(ilustativo)</h4>
+      </div>
+
+      <!-- Seções -->
+      <section class="cidade-container">
+  <div class="sobrenatural-container">
+    <img src="assets/soberba.png" alt="Sobrenatural" class="card-img">
+    <div class="body-city">
+      <h2>Sobrenatural</h2>
+      <p>Panteõs, cada um representa forças primordiais — vida e morte, ordem e caos, luz e escuridão.
+      Seus ecos ressoam em tempestades, sonhos e presságios, lembrando aos mortais que o destino não lhes pertence por completo.
+      Quando os Panteões despertam, o equilíbrio do mundo é posto à prova.</p>
+    </div>
+  </div>
+
+  <div class="universidade-container">
+    <img src="assets/universidade.png" alt="Universidade" class="card-img">
+    <div class="body-city">
+      <h2>Universidade</h2>
+      <p>A Universidade Orleans é um tradicional campus americano, repleto de fraternidades, clubes e rivalidades estudantis.
+        À primeira vista, um lugar de aprendizado e convivência...
+        <br>
+      <em>Mas essa universidade pode esconder algo sombrio.</em></p>
+    </div>
+  </div>
+
+  <div class="paranormal-container">
+    <img src="assets/Banner Lighting.png" alt="Paranormal" class="card-img">
+    <div class="body-city">
+      <h2>Paranormal</h2>
+      <p>Em Orleans, esqueletos surgem, sussurros ecoam e pessoas desaparecem — sinais de que algo paranormal habita a cidade.</p>
+    </div>
+  </div>
+</section>
+
+      <section class="patch">
+        <h2>Atualizações (ilustrativo)</h2>
+        <div class="patch-container">
+          <img src="assets/patch.jpg" alt="">
+          <p> A atualização Money Fronts do GTA Online traz uma nova dinâmica de lavagem de dinheiro, onde os jogadores 
+            podem adquirir negócios locais icônicos e usá-los como fachadas para canalizar lucros ilícitos. Com a ajuda de Martin Madrazo e Raf De Angelis, os 
+            jogadores podem conectar sua rede criminosa a novos consultores e aumentar os ganhos dos seus negócios ilegais. A atualização também introduz um novo sistema de lavagem de dinheiro, 
+            onde os jogadores podem iniciar missões de lavagem de dinheiro através de laptops ou ligações, e gerenciar a pressão da polícia com tarefas legítimas.</p>
+        </div>
+
+      </section>
+
+      <footer>
+         <p> 2025 OLN Elite Group. Todos os direitos reservados.</p>
+         <p>desenvolvido por Cristian Brito</p>
+      </footer>
+    </main>
+  </div>
 </body>
 </html>
