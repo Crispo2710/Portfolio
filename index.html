@@ -340,6 +340,7 @@
       object-fit: contain;
       transition: transform 0.5s ease;
       padding: 15px;
+      background: white;
     }
 
     .design-card:hover .design-image img {
@@ -349,7 +350,25 @@
     .event-image {
       background: white;
       position: relative;
-      border: 1px solid var(--gray-light); /* opcional - para dar uma borda */
+      border: 1px solid var(--gray-light);
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .event-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,255,255,0.5) 10px,
+        rgba(255,255,255,0.5) 20px
+      );
+      opacity: 0.3;
     }
 
     .placeholder-text {
@@ -378,64 +397,65 @@
       flex-grow: 1;
     }
 
-/* Experience */
-#experience {
-  background: white;
-}
+    /* Experience */
+    #experience {
+      background: white;
+    }
 
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--primary);
-  border-radius: 2px;
-  z-index: 1;
-}
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      z-index: 1;
+    }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-  padding-left: 50px;
-}
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 50px;
+    }
 
-.timeline-date {
-  position: absolute;
-  left: -80px;
-  top: 15px;
-  background: var(--primary);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  z-index: 2;
-  min-width: 100px;
-  text-align: center;
-}
+    .timeline-date {
+      position: absolute;
+      left: -80px;
+      top: 15px;
+      background: var(--primary);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 2;
+      min-width: 100px;
+      text-align: center;
+    }
 
-.timeline-content {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
+    .timeline-content {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
 
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
     /* Projects */
     #projects {
       background: var(--light);
@@ -618,6 +638,26 @@
       .event-subtitle {
         font-size: 1rem;
       }
+      
+      .timeline::before {
+        left: 15px;
+      }
+      
+      .timeline-item {
+        padding-left: 40px;
+      }
+      
+      .timeline-date {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+      
+      .timeline-content {
+        padding: 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -637,41 +677,46 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
+      
+      .timeline-item {
+        padding-left: 30px;
+      }
+      
+      .timeline-date {
+        min-width: 80px;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
     }
 
-    @media (max-width: 768px) {
-  .timeline::before {
-    left: 15px;
-  }
-  
-  .timeline-item {
-    padding-left: 40px;
-  }
-  
-  .timeline-date {
-    position: relative;
-    left: 0;
-    top: 0;
-    margin-bottom: 15px;
-    display: inline-block;
-  }
-  
-  .timeline-content {
-    padding: 20px;
-  }
-}
+    /* Estilos adicionais para os novos placeholders */
+    .design-image .placeholder-text i {
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
 
-@media (max-width: 480px) {
-  .timeline-item {
-    padding-left: 30px;
-  }
-  
-  .timeline-date {
-    min-width: 80px;
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
+    .design-card:hover .design-image .placeholder-text i {
+      transform: scale(1.1);
+    }
+    
+    /* Para imagens com fundo branco */
+    .design-image .img-white-bg {
+      background: white;
+      padding: 20px;
+    }
+    
+    /* Para imagens que devem preencher o espaço */
+    .design-image .img-cover {
+      object-fit: cover;
+      padding: 0;
+    }
+    
+    /* Para imagens com dimensões diferentes */
+    .design-image .img-contain {
+      object-fit: contain;
+      max-width: 90%;
+      max-height: 90%;
+    }
   </style>
 </head>
 <body>
@@ -687,7 +732,7 @@
           <div class="contact-info">
             <div class="contact-item">
               <i class="fas fa-phone"></i>
-              <span>98 8155-5219</span>
+              <span>98 98155-5219</span>
             </div>
             <div class="contact-item">
               <i class="fas fa-envelope"></i>
@@ -700,7 +745,7 @@
           </div>
         </div>
         <div class="header-image">
-          <img src="assets/5b05ab1e-639c-4153-9f7b-0585fd9d281a.jpg " alt="Cristian Brito" class="profile-img">
+          <img src="assets/5b05ab1e-639c-4153-9f7b-0585fd9d281a.jpg" alt="Cristian Brito" class="profile-img">
         </div>
       </div>
     </div>
@@ -785,11 +830,56 @@
         <div class="design-card">
           <div class="design-image">
             <img src="assets/Pequeno evento.png" alt="Pequenos Eventos">
-         </div>
-         <div class="design-content">
-             <h3>Pequenos Eventos</h3>
-             <p>Design de materiais promocionais para eventos, incluindo flyers, banners e artes para redes sociais.</p>
-         </div>
+          </div>
+          <div class="design-content">
+            <h3>Pequenos Eventos</h3>
+            <p>Design de materiais promocionais para eventos, incluindo flyers, banners e artes para redes sociais.</p>
+          </div>
+        </div>
+        
+        <!-- Team Shield - Banner -->
+        <div class="design-card">
+          <div class="design-image">
+            <img src="assets/banner Shield port_.png" alt="Banner Shield">
+          </div>
+          <div class="design-content">
+            <h3>Team Shield - Banner</h3>
+            <p>Criação de banner para Rede sociais da organização de E-Sports.</p>
+          </div>
+        </div>
+        
+        <!-- Team Shield - Logo -->
+        <div class="design-card">
+          <div class="design-image">
+            <img src="assets/Boizão branco com escudo.png" alt="Logo Team Shield">
+          </div>
+          <div class="design-content">
+            <h3>Team Shield - Logo</h3>
+            <p>Desenvolvimento de logotipo exclusivo para organização de E-Sports.</p>
+          </div>
+        </div>
+        
+        <!-- Team Shield - Camisas -->
+        <div class="design-card">
+          <div class="design-image">
+            <img src="assets/Apresentação camisas.png" alt="Design de Camisas">
+          </div>
+          <div class="design-content">
+            <h3>Team Shield - Design de Camisas</h3>
+            <p>Criação de uniformes para jogadores, integrando logo e elementos visuais da organização.</p>
+          </div>
+        </div>
+        
+        <!-- Team Shield - Apresentação de Jogador -->
+        <div class="design-card">
+          <div class="design-image">
+            <img src="assets/Modelo player port.png" alt="Apresentação de Jogador">
+          </div>
+          <div class="design-content">
+            <h3>Team Shield - Apresentação de Jogador</h3>
+            <p>Desenvolvimento de template padronizado para apresentação de jogadores, foto e informações relevantes.</p>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -804,13 +894,16 @@
       
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2018 - 2025</div>
+          <div class="timeline-date">2018 - 2026</div>
           <div class="timeline-content">
             <h3>Design</h3>
             <ul>
               <li>Time amador E-Sports KNF</li>
               <li>Encarregado de fazer thumbnails e banners para Influencers</li>
               <li>Pequenos eventos</li>
+              <li>Time amador Team Shield</li>
+              <li>Design completo da identidade visual da equipe</li>
+              <li>Gestão de time e estruturação de projetos competitivos</li>
             </ul>
           </div>
         </div>
